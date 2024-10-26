@@ -18,6 +18,18 @@ class User(model_utils_models.TimeStampedModel):
         max_length=254,
     )
 
+    refresh_token = models.CharField(
+        verbose_name='리프레시 토큰',
+        max_length=256,
+        null=True,
+        blank=True,
+    )
+
+    remember_me = models.BooleanField(
+        verbose_name='로그인 유지',
+        default=False,
+    )
+
     class Meta:
         verbose_name = '사용자'
         verbose_name_plural = '사용자'
