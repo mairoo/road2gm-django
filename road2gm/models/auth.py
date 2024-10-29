@@ -18,13 +18,6 @@ class User(model_utils_models.TimeStampedModel):
         max_length=254,
     )
 
-    refresh_token = models.CharField(
-        verbose_name='리프레시 토큰',
-        max_length=256,
-        null=True,
-        blank=True,
-    )
-
     remember_me = models.BooleanField(
         verbose_name='로그인 유지',
         default=False,
@@ -37,3 +30,27 @@ class User(model_utils_models.TimeStampedModel):
 
     def __str__(self):
         return self.username
+
+
+class RefreshToken(model_utils_models.TimeStampedModel):
+    user = models.ForeignKey(
+        'road2gm.User',
+        verbose_name='사용자',
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    token = models.CharField(
+        verbose_name='토큰',
+        max_length=256,
+        null=True,
+        blank=True,
+    )
+
+    class Meta:
+        verbose_name = '리프레시 토큰'
+        verbose_name_plural = '리프레시 토큰'
+        db_table = 'refresh_token'
+
+    def __str__(self):
+        return self.token
