@@ -42,15 +42,18 @@ class RefreshToken(model_utils_models.TimeStampedModel):
 
     token = models.CharField(
         verbose_name='토큰',
-        max_length=256,
-        null=True,
-        blank=True,
+        max_length=128,
+    )
+
+    ip_address = models.GenericIPAddressField(
+        verbose_name='IP 주소',
     )
 
     class Meta:
         verbose_name = '리프레시 토큰'
         verbose_name_plural = '리프레시 토큰'
         db_table = 'refresh_token'
+        unique_together = ('token', 'ip_address')
 
     def __str__(self):
         return self.token
