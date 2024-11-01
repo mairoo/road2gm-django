@@ -27,6 +27,10 @@ class User(model_utils_models.TimeStampedModel):
         verbose_name = '사용자'
         verbose_name_plural = '사용자'
         db_table = 'user'
+        indexes = [
+            models.Index(fields=['username']),
+            models.Index(fields=['email']),
+        ]
 
     def __str__(self):
         return self.username
