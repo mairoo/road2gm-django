@@ -51,6 +51,10 @@ class RefreshToken(model_utils_models.TimeStampedModel):
         verbose_name = '리프레시 토큰'
         verbose_name_plural = '리프레시 토큰'
         db_table = 'refresh_token'
+        indexes = [
+            models.Index(fields=['token', 'ip_address']),
+            models.Index(fields=['created']),
+        ]
 
     def __str__(self):
         return self.token
