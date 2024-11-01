@@ -8,7 +8,6 @@ class UserAdmin(admin.ModelAdmin):
 
 
 class RefreshTokenAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'token')
     ordering = ('-created',)
 
 

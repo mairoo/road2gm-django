@@ -33,11 +33,9 @@ class User(model_utils_models.TimeStampedModel):
 
 
 class RefreshToken(model_utils_models.TimeStampedModel):
-    user = models.ForeignKey(
-        'road2gm.User',
-        verbose_name='사용자',
-        db_index=True,
-        on_delete=models.CASCADE,
+    username = models.CharField(
+        verbose_name='아이디',
+        max_length=150,
     )
 
     token = models.CharField(
@@ -53,7 +51,6 @@ class RefreshToken(model_utils_models.TimeStampedModel):
         verbose_name = '리프레시 토큰'
         verbose_name_plural = '리프레시 토큰'
         db_table = 'refresh_token'
-        unique_together = ('token', 'ip_address')
 
     def __str__(self):
         return self.token
