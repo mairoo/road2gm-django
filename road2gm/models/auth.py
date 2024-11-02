@@ -23,6 +23,12 @@ class User(model_utils_models.TimeStampedModel):
         default=False,
     )
 
+    roles = models.ManyToManyField(
+        'road2gm.Role',
+        verbose_name='역할',
+        blank=True,
+    )
+
     class Meta:
         verbose_name = '사용자'
         verbose_name_plural = '사용자'
