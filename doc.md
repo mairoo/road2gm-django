@@ -80,3 +80,8 @@ git remote add origin git@github.com-mairoo:mairoo/road2gm-django.git
 git remote -v
 git branch --set-upstream-to=origin/main main
 ```
+
+# fixtures 로드
+```
+python manage.py loaddata data.json
+```

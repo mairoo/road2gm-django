@@ -1,0 +1,20 @@
+[
+{
+    "model": "road2gm.role",
+    "pk": 1,
+    "fields": {
+        "created": "2024-11-04T23:34:26Z",
+        "modified": "2024-11-04T23:34:28Z",
+        "name": "CUSTOMER"
+    }
+},
+{
+    "model": "road2gm.role",
+    "pk": 2,
+    "fields": {
+        "created": "2024-11-04T23:34:37Z",
+        "modified": "2024-11-04T23:34:40Z",
+        "name": "SYSADMIN"
+    }
+}
+]
