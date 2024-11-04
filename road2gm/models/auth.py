@@ -46,6 +46,7 @@ class Role(model_utils_models.TimeStampedModel):
     name = models.CharField(
         verbose_name='아이디',
         max_length=150,
+        unique=True,
     )
 
     class Meta:
