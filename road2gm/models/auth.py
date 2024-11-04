@@ -48,13 +48,6 @@ class Role(model_utils_models.TimeStampedModel):
         max_length=150,
     )
 
-    parent = models.ForeignKey(
-        'road2gm.Role',
-        verbose_name='부모',
-        db_index=True,
-        on_delete=models.CASCADE,
-    )
-
     class Meta:
         verbose_name = '역할'
         verbose_name_plural = '역할'
