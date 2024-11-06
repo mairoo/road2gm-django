@@ -84,3 +84,28 @@ class RefreshToken(model_utils_models.TimeStampedModel):
 
     def __str__(self):
         return self.token
+
+
+class SocialAccounts(model_utils_models.TimeStampedModel):
+    user = models.ForeignKey(
+        'road2gm.User',
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    provider = models.CharField(
+        verbose_name='소셜로그인',
+        max_length=32,
+    )
+
+    uid = models.CharField(
+        verbose_name='소셜로그인 식별자',
+        max_length=254,
+    )
+
+    extra_data = models.TextField(
+        verbose_name="추가 정보",
+    )
+
+    def __str__(self):
+        return '{} {}'.format(self.provider, self.uid)
