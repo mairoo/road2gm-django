@@ -23,27 +23,6 @@ class User(model_utils_models.TimeStampedModel):
         default=False,
     )
 
-    image_url = models.CharField(
-        verbose_name='이미지 경로',
-        max_length=254,
-        null=True,
-        blank=True,
-    )
-
-    provider = models.CharField(
-        verbose_name='소셜로그인',
-        max_length=32,
-        null=True,
-        blank=True,
-    )
-
-    provider_id = models.CharField(
-        verbose_name='소셜로그인 식별자',
-        max_length=254,
-        null=True,
-        blank=True,
-    )
-
     roles = models.ManyToManyField(
         'road2gm.Role',
         verbose_name='역할',
