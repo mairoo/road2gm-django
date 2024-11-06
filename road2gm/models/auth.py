@@ -86,7 +86,7 @@ class RefreshToken(model_utils_models.TimeStampedModel):
         return self.token
 
 
-class SocialAccounts(model_utils_models.TimeStampedModel):
+class SocialAccount(model_utils_models.TimeStampedModel):
     user = models.ForeignKey(
         'road2gm.User',
         db_index=True,
@@ -106,6 +106,11 @@ class SocialAccounts(model_utils_models.TimeStampedModel):
     extra_data = models.TextField(
         verbose_name="추가 정보",
     )
+
+    class Meta:
+        verbose_name = '소셜연동계정'
+        verbose_name_plural = '소셜연동계정'
+        db_table = 'social_account'
 
     def __str__(self):
         return '{} {}'.format(self.provider, self.uid)
