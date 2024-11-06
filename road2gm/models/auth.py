@@ -32,7 +32,7 @@ class User(model_utils_models.TimeStampedModel):
 
     provider = models.CharField(
         verbose_name='소셜로그인',
-        max_length=16,
+        max_length=32,
         null=True,
         blank=True,
     )
