@@ -59,8 +59,8 @@ class Role(model_utils_models.TimeStampedModel):
 
 
 class RefreshToken(model_utils_models.TimeStampedModel):
-    username = models.CharField(
-        verbose_name='아이디',
+    email = models.CharField(
+        verbose_name='이메일',
         max_length=150,
     )
 
