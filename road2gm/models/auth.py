@@ -116,13 +116,13 @@ class SocialAccount(model_utils_models.TimeStampedModel):
         return '{} {}'.format(self.provider, self.uid)
 
 
-class SocialAccountState(model_utils_models.TimeStampedModel):
+class OAuth2Token(model_utils_models.TimeStampedModel):
     email = models.CharField(
         verbose_name='이메일',
         max_length=150,
     )
 
-    state = models.CharField(
+    token = models.CharField(
         verbose_name='상태',
         max_length=128,
         unique=True,
@@ -131,11 +131,11 @@ class SocialAccountState(model_utils_models.TimeStampedModel):
     class Meta:
         verbose_name = '소셜연동 임시코드'
         verbose_name_plural = '소셜연동 임시코드'
-        db_table = 'social_account_state'
+        db_table = 'oauth2_token'
         indexes = [
-            models.Index(fields=['state']),
+            models.Index(fields=['token']),
             models.Index(fields=['created']),
         ]
 
     def __str__(self):
-        return self.state
+        return self.token
